@@ -1,0 +1,31 @@
+{
+    "type": "panel",
+    "name": "HTML",
+    "id": "aidanmountford-html-panel",
+
+    "info": {
+        "description": "HTML panel for grafana",
+        "author": {
+            "name": "aidan@mountford.org",
+            "url": "https://github.com/aidanmountford/grafana-aidanmountford-html-panel"
+        },
+        "keywords": ["html", "panel"],
+        "logos": {
+            "small": "img/html-panel-logo-small.png",
+            "large": "img/html-panel-logo-large.png"
+        },
+        "links": [
+            { "name": "MIT License", "url": "https://github.com/MarcusCalidus/aidanmountford-html-panel/LICENSE" },
+            { "name": "Project", "url": "https://github.com/AidanMountford/aidanmountford-html-panel" }
+        ],
+        "screenshots": [
+        ],
+        "version": "0.0.1",
+        "updated": "2019-12-27"
+    },
+
+    "dependencies": {
+        "grafanaVersion": "3.x.x",
+        "plugins": []
+    }
+}

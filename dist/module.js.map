@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/module.js"],"names":["_","HTMLCtrl"],"mappings":";;;;;;;;;AACOA,a;;AACEC,oB,cAAAA,Q;;;iCAGLA,Q","file":"module.js","sourcesContent":["import './polyfills.js';\nimport _ from 'lodash';\nimport { HTMLCtrl } from './html_ctrl';\n\nexport {\n    HTMLCtrl as PanelCtrl\n};\n"]}

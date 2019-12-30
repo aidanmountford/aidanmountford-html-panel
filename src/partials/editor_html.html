@@ -1,0 +1,20 @@
+<div class="editor-row">
+                <h5 class="section-heading">CSS</h5>
+                <ul style="padding-left: 40px;">
+                <li>This is the CSS that will be used to render the panel.</li>
+                <li>The content here will be placed inside scoped style tags and will only be available to this panel</li>
+
+		<div id="css_data" ng-show="ctrl.doShowAceHtml('css_data')" style="height: 500px; width: 100%; margin-top: 8px;"></div>
+		<!--textarea class="gf-form-input ng-not-empty" style="font-family:'Courier New', Courier, monospace;min-height: 500px" ng-model="ctrl.panel.css_data"  
+ng-change="ctrl.resetHTML(); ctrl.render();"></textarea-->
+</div>
+
+<div class="editor-row">
+                <h5 class="section-heading">HTML</h5>
+                <ul style="padding-left: 40px;">
+                <li>This is the HTML that will be used to render the panel.</li>
+
+		<div id="html_data" ng-show="ctrl.doShowAceHtml('html_data')" style="height: 500px; width: 100%; margin-top: 8px;"></div>
+		<!--textarea class="gf-form-input ng-not-empty" style="font-family:'Courier New', Courier, monospace;min-height: 500px" ng-model="ctrl.panel.html_data"  ng-change="ctrl.resetHTML(); ctrl.render();"></textarea-->
+</div>
+<p></p>
