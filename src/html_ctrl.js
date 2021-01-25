@@ -7,6 +7,7 @@ import ace from './node_modules/brace/index.js';
 import './node_modules/brace/ext/language_tools.js';
 import './node_modules/brace/theme/tomorrow_night_bright.js';
 import './node_modules/brace/mode/javascript.js';
+import { getLocationSrv } from '@grafana/runtime';
 //import './node_modules/brace/mode/plain_text.js';
 
 class GrafanaJSCompleter {
@@ -376,6 +377,22 @@ export class HTMLCtrl extends MetricsPanelCtrl {
         rendering(scope, elem, attrs, ctrl);
     }
 
+    setVariables(valuemap) {
+      var query = {};
+      for (var key in valuemap) {
+        //console.log('update variable in URL', key, valuemap[key] );
+        var varname = key;
+        if (!key.startsWith('var-') && key !== 'from' && key !== 'to') {
+          varname = 'var-' + key;
+        }
+        query[varname] = valuemap[key];
+      }
+      getLocationSrv().update({
+        partial: true,
+        query: query,
+        replace: true
+      });
+    }
 }
 
 HTMLCtrl.templateUrl = 'module.html';

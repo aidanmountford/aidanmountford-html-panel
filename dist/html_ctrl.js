@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', 'app/core/time_series', './rendering', './node_modules/brace/index.js', './node_modules/brace/ext/language_tools.js', './node_modules/brace/theme/tomorrow_night_bright.js', './node_modules/brace/mode/javascript.js'], function (_export, _context) {
+System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', 'app/core/time_series', './rendering', './node_modules/brace/index.js', './node_modules/brace/ext/language_tools.js', './node_modules/brace/theme/tomorrow_night_bright.js', './node_modules/brace/mode/javascript.js', '@grafana/runtime'], function (_export, _context) {
     "use strict";
 
-    var MetricsPanelCtrl, _, kbn, TimeSeries, rendering, ace, _typeof, _createClass, GrafanaJSCompleter, HTMLCtrl;
+    var MetricsPanelCtrl, _, kbn, TimeSeries, rendering, ace, getLocationSrv, _typeof, _createClass, GrafanaJSCompleter, HTMLCtrl;
 
     function _possibleConstructorReturn(self, call) {
         if (!self) {
@@ -48,7 +48,9 @@ System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', 'app/core/ti
             rendering = _rendering.default;
         }, function (_node_modulesBraceIndexJs) {
             ace = _node_modulesBraceIndexJs.default;
-        }, function (_node_modulesBraceExtLanguage_toolsJs) {}, function (_node_modulesBraceThemeTomorrow_night_brightJs) {}, function (_node_modulesBraceModeJavascriptJs) {}],
+        }, function (_node_modulesBraceExtLanguage_toolsJs) {}, function (_node_modulesBraceThemeTomorrow_night_brightJs) {}, function (_node_modulesBraceModeJavascriptJs) {}, function (_grafanaRuntime) {
+            getLocationSrv = _grafanaRuntime.getLocationSrv;
+        }],
         execute: function () {
             _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
                 return typeof obj;
@@ -476,6 +478,24 @@ System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', 'app/core/ti
                     key: 'link',
                     value: function link(scope, elem, attrs, ctrl) {
                         rendering(scope, elem, attrs, ctrl);
+                    }
+                }, {
+                    key: 'setVariables',
+                    value: function setVariables(valuemap) {
+                        var query = {};
+                        for (var key in valuemap) {
+                            console.log('update variable in URL', key, valuemap[key]);
+                            var varname = key;
+                            if (!key.startsWith('var-') && key !== 'from' && key !== 'to') {
+                                varname = 'var-' + key;
+                            }
+                            query[varname] = valuemap[key];
+                        }
+                        getLocationSrv().update({
+                            partial: true,
+                            query: query,
+                            replace: true
+                        });
                     }
                 }]);
 
