@@ -166,7 +166,6 @@ System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', 'app/core/ti
                     var _this = _possibleConstructorReturn(this, (HTMLCtrl.__proto__ || Object.getPrototypeOf(HTMLCtrl)).call(this, $scope, $injector));
 
                     _this.$rootScope = $rootScope;
-
                     var panelDefaults = {
                         links: [],
                         datasource: null,
@@ -484,7 +483,7 @@ System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', 'app/core/ti
                     value: function setVariables(valuemap) {
                         var query = {};
                         for (var key in valuemap) {
-                            console.log('update variable in URL', key, valuemap[key]);
+                            //console.log('update variable in URL', key, valuemap[key] );
                             var varname = key;
                             if (!key.startsWith('var-') && key !== 'from' && key !== 'to') {
                                 varname = 'var-' + key;
@@ -503,6 +502,9 @@ System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', 'app/core/ti
             }(MetricsPanelCtrl));
 
             _export('HTMLCtrl', HTMLCtrl);
+
+            HTMLCtrl.scrollable = true;
+
 
             HTMLCtrl.templateUrl = 'module.html';
         }

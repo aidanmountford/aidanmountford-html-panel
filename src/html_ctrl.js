@@ -85,11 +85,10 @@ class GrafanaJSCompleter {
 
 
 export class HTMLCtrl extends MetricsPanelCtrl {
-
+  static scrollable = true;
     constructor($scope, $injector, $rootScope) {
         super($scope, $injector);
         this.$rootScope = $rootScope;
-
         var panelDefaults = {
             links: [],
             datasource: null,

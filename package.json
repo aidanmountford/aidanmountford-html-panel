@@ -17,6 +17,8 @@
         "babel": "^6.23.0",
         "babel-plugin-transform-es2015-for-of": "^6.23.0",
         "babel-plugin-transform-es2015-modules-systemjs": "^6.24.1",
+        "babel-plugin-transform-class-properties": "",
+        "babel-plugin-syntax-class-properties": "",
         "babel-preset-es2015": "^6.24.1",
         "grunt": "^1.0.4",
         "grunt-babel": "^7.0.0",
